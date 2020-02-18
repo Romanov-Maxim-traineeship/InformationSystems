@@ -1,0 +1,285 @@
+<HTML>
+   <HEAD>
+      <TITLE>Лекция 56 - Пакет прикладных программ «Планирование мощности»</TITLE>
+      <META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=Windows-1251">
+      <META NAME="Author" CONTENT="Симикин Павел">
+      <META NAME="Description" CONTENT="Тверской Государственный Технический Университет, Теория Экономических Информационных Систем">
+      <META NAME="Keywords" CONTENT="ТГТУ, лекции, практика, университет, обучение, учеба, политех, Тверь, Tver, Тверской, Теория ЭИС, Информационные Системы, Экономика, управление, ЭИС, информация, сетевые базы данных, данные, Симикин">
+      <LINK REL=stylesheet HREF="style.css" TYPE="text/css">
+   </HEAD>
+   <BODY BGCOLOR="#669999" TEXT="#333366" LEFTMARGIN="0" RIGHTMARGIN="0" TOPMARGIN="0" MARGINWIDTH="0" MARGINHEIGHT="0" BOTTOMMARGIN="0"
+         LINK="#333366" ALINK="white" VLINK="white">
+      <BASEFONT FACE="Verdana, Arial, Helvetica, sans-serif">
+      <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="780" ALIGN="center">
+         <TR HEIGHT="5"  BGCOLOR="#669999">
+            <TD WIDTH="5" ROWSPAN="2" VALIGN="top">
+            </TD>
+            <TD BGCOLOR="#336666" WIDTH="5" ROWSPAN="2">
+            </TD>
+            <TD WIDTH="230">
+            </TD>
+            <TD WIDTH="5">
+            </TD>
+            <TD WIDTH="10">
+            </TD>
+            <TD WIDTH="10">
+            </TD>
+            <TD WIDTH="485">
+            </TD>
+            <TD WIDTH="10">
+            </TD>
+            <TD BGCOLOR="#669999" WIDTH="10" ROWSPAN="5">
+            </TD>
+            <TD BGCOLOR="#336666" WIDTH="5" ROWSPAN="5">
+            </TD>
+            <TD BGCOLOR="#669999" WIDTH="5" ROWSPAN="10">
+            </TD>
+         </TR>
+         <TR HEIGHT="5"  BGCOLOR="#669999">
+            <TD BGCOLOR="#336666">
+            </TD>
+            <TD BGCOLOR="#336666">
+            </TD>
+            <TD COLSPAN="4">
+            </TD>
+         </TR>
+         <TR HEIGHT="40"  BGCOLOR="#669999">
+            <TD ROWSPAN="5" COLSPAN="3" VALIGN="bottom" ALIGN="right">
+               <DIV><IMG SRC="Images/tgtu1.gif" BORDER="0" WIDTH="212" HEIGHT="75"></DIV>
+            </TD>
+            <TD BGCOLOR="#336666" ROWSPAN="4" VALIGN="bottom">
+               <DIV><IMG SRC="Images/tgtu3.gif" BORDER="0" WIDTH="5" HEIGHT="55"></DIV>
+            </TD>
+            <TD ROWSPAN="3" ALIGN="left" VALIGN="bottom">
+               <DIV><IMG SRC="Images/tgtu2.gif" BORDER="0" WIDTH="10" HEIGHT="50"></DIV>
+            </TD>
+            <TD COLSPAN="3" VALIGN="middle" ALIGN="center">
+               <IMG SRC="Images/teor.gif" BORDER="0" WIDTH="480" HEIGHT="40">
+            </TD>
+         </TR>
+         <TR HEIGHT="10">
+            <TD BACKGROUND="Images/gradr1.gif" BGCOLOR="#336666">
+            </TD>
+            <TD BACKGROUND="Images/grad7.gif" BGCOLOR="#336666">
+            </TD>
+            <TD BACKGROUND="Images/gradr2.gif" BGCOLOR="#336666">
+            </TD>
+         </TR>
+         <TR HEIGHT="5">
+            <TD BACKGROUND="Images/grad.gif" BGCOLOR="#336666">
+            </TD>
+            <TD BGCOLOR="white">
+            </TD>
+            <TD BACKGROUND="Images/grad6.gif" BGCOLOR="#336666">
+            </TD>
+         </TR>
+         <TR HEIGHT="5" BGCOLOR="#336666">
+            <TD>
+            </TD>
+            <TD COLSPAN="5">
+            </TD>
+         </TR>
+         <TR HEIGHT="20" BGCOLOR="#669999">
+            <TD COLSPAN="2" ALIGN="left">
+               <DIV><IMG SRC="Images/tgtu7.gif" BORDER="0" WIDTH="15" HEIGHT="20"></DIV>
+            </TD>
+            <TD COLSPAN="5" VALIGN="middle" ALIGN="center">
+               <FONT SIZE="2">
+                  <NOBR><A HREF="main.html">Главная</A>
+                  | <A HREF="teor.html">Теория</A>
+                  | <A HREF="prak.html">Практика</A>
+                  | <A HREF="test.html">Тестирование</A>
+                  | <A HREF="kurs.html">Курсовой проект</A></NOBR>
+               </FONT>
+            </TD>
+         </TR>
+         <TR HEIGHT="5" BGCOLOR="#336666">
+            <TD BGCOLOR="#669999" ROWSPAN="3">
+            </TD>
+            <TD ROWSPAN="3">
+            </TD>
+            <TD ALIGN="right" HEIGHT="5">
+               <DIV><IMG SRC="Images/tgtu6.gif" BORDER="0" WIDTH="212" HEIGHT="5"></DIV>
+            </TD>
+            <TD COLSPAN="7" ALIGN="left">
+               <DIV><IMG SRC="Images/tgtu8.gif" BORDER="0" WIDTH="15" HEIGHT="5"></DIV>
+            </TD>
+         </TR>
+         <TR HEIGHT="20">
+            <TD BGCOLOR="#669999" VALIGN="top" ALIGN="right">
+               <DIV><IMG SRC="Images/tgtu4.gif" BORDER="0" WIDTH="212" HEIGHT="10"></DIV>
+            </TD>
+            <TD BGCOLOR="#669999" COLSPAN="2" VALIGN="top" ALIGN="left">
+               <DIV><IMG SRC="Images/tgtu5.gif" BORDER="0" WIDTH="15" HEIGHT="10"></DIV>
+            </TD>
+            <TD BACKGROUND="Images/grad.gif" BGCOLOR="#336666" ROWSPAN="2">
+            </TD>
+            <TD BGCOLOR="white" ROWSPAN="2" VALIGN="top">
+               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="10" WIDTH="485">
+                  <TR>
+                     <TD><FONT SIZE="2">
+                        <H3 ALIGN="center">Пакет прикладных программ «Планирование мощности»</H3>
+                        <P ALIGN="justify"><i>Назначение</i>: расчет загрузки рабочих мест планом выпуска изделий в соответствии с ПЗ и производственной программой.</P>		  
+                        <P ALIGN="justify"><i>Функции этой задачи</i>:</P>
+                        <P ALIGN="justify">a.	расчет календарных пооперационных графиков запуска изделий в производство;</P>
+                        <P ALIGN="justify">b.	вычисление загрузки для каждого рабочего места;</P>
+			<P ALIGN="justify">c.	анализ выполнения плана загрузки по рабочим местам, составление отчетов по загрузке рабочих мест.</P>
+			<P ALIGN="justify">Дата производственного запуска каждого изделия определяется исходя из даты запуска предыдущего изделия на этом рабочем месте.</P>
+			<P ALIGN="justify"><IMG SRC="Images/lect56tab1.jpg" WIDTH="244" HEIGHT="32" BORDER="0"></P>                      
+			<P ALIGN="justify"><IMG SRC="Images/lect56tab2.jpg" WIDTH="500" HEIGHT="137" BORDER="0"></P>
+			<P ALIGN="justify"><IMG SRC="Images/lect56tab3.jpg" WIDTH="500" HEIGHT="250" BORDER="0"></P>
+			<P ALIGN="justify">ПТН – массив пооперационных трудовых нормативов – время обработки деталей на каждом станке по операциям. РМ – массив рабочих мест, содержит характеристики рабочих мест. СПЗ – массив скорректированных плановых заказов с учетом даты обработки.</P>
+                     </FONT></TD>
+                  </TR>
+               </TABLE>
+            </TD>
+            <TD BACKGROUND="Images/grad6.gif" ROWSPAN="2" BGCOLOR="#336666">
+            </TD>
+            <TD BGCOLOR="#669999" ROWSPAN="2">
+            </TD>
+            <TD BGCOLOR="#336666" ROWSPAN="2">
+            </TD>
+         </TR>
+         <TR HEIGHT="1550">
+            <TD COLSPAN="3" VALIGN="top" ALIGN="center" BGCOLOR="#669999">
+               <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="245" VALIGN="top">
+                  <TR>
+                     <TD VALIGN="top">
+                        <FONT SIZE="1"><OL TYPE="1"><P><B>С п и с о к &nbsp;&nbsp;&nbsp;&nbsp;л е к ц и й :</B></P>
+                           <A HREF="lect1.html"><LI>Предмет и задачи курса</A>
+                           <A HREF="lect2.html"><LI>Классификация экономической информации через функции управления предприятием</A>
+                           <A HREF="lect3.html"><LI>Основные определения и понятия ЭИС</A>
+                           <A HREF="lect4.html"><LI>Классификация и особенности подсистем автоматизированных ЭИС</A>
+                           <A HREF="lect5.html"><LI>Основные принципы построения ЭИС</A>
+                           <A HREF="lect6.html"><LI>Общая задача управления современным промышленным предприятием</A>
+                           <A HREF="lect7.html"><LI>Методы декомпозиции общей задачи управления. Общее описание системы</A>
+                           <A HREF="lect8.html"><LI>Синтез структуры автоматизированной ЭИС и ее основные характеристики</A>
+                           <A HREF="lect9.html"><LI>Синтез функциональной структуры ЭИС. Матричный метод декомпозиции на основе матрицы связанности документов</A>
+			   <A HREF="lect10.html"><LI>Информационное обеспечение автоматизированных систем в экономике</A>
+                           <A HREF="lect11.html"><LI>Структура информационного обеспечения ЭИС</A>
+                           <A HREF="lect12.html"><LI>Организация информационной базы</A>
+                           <A HREF="lect13.html"><LI>Классификация и кодирование технико-экономической информации</A>
+                           <A HREF="lect14.html"><LI>Методы кодирования технико-экономической информации</A>
+                           <A HREF="lect15.html"><LI>Методы контроля ошибок в кодовом обозначении</A>
+                           <A HREF="lect16.html"><LI>Классификация и основные свойства единиц информации</A>
+                           <A HREF="lect17.html"><LI>Определение составной единицы информации</A>
+                           <A HREF="lect18.html"><LI>Определение экономического показателя</A>
+                           <A HREF="lect19.html"><LI>Основные операции, производимые с составной единицей информации</A>
+                           <A HREF="lect20.html"><LI>Определение модели данных и их классификация</A>
+                           <A HREF="lect21.html"><LI>Реляционная модель данных</A>
+                           <A HREF="lect22.html"><LI>Реляционная алгебра, операции «проекция» и «выборка»</A>
+                           <A HREF="lect23.html"><LI>Реляционная алгебра, операции «объединение», «пересечение» и «вычитание»</A>
+                           <A HREF="lect24.html"><LI>Реляционная алгебра, операции «соединение» и «деление»</A>
+                           <A HREF="lect25.html"><LI>Нормализация отношений</A>
+                           <A HREF="lect26.html"><LI>Функциональные зависимости и ключи</A>
+                           <A HREF="lect27.html"><LI>Определение второй нормальной формы отношений</A>
+                           <A HREF="lect28.html"><LI>Определение третьей нормальной формы отношений</A>
+                           <A HREF="lect29.html"><LI>Сетевая модель данных, примеры</A>
+                           <A HREF="lect30.html"><LI>Классификация сетевых баз данных</A>
+                           <A HREF="lect31.html"><LI>Виды обработки данных в сетевой базе данных</A>
+                           <A HREF="lect32.html"><LI>Иерархическая модель данных</A>
+                           <A HREF="lect33.html"><LI>Преимущества и недостатки различных моделей данных</A>
+                           <A HREF="lect34.html"><LI>Методы организации данных в памяти ЭВМ</A>
+                           <A HREF="lect35.html"><LI>Сортировка данных</A>
+                           <A HREF="lect36.html"><LI>Методы поиска данных</A>
+                           <A HREF="lect37.html"><LI>Методы корректировки данных</A>
+                           <A HREF="lect38.html"><LI>Списковая (цепная) организация данных</A>
+                           <A HREF="lect39.html"><LI>Древовидная организация данных</A>
+                           <A HREF="lect40.html"><LI>Организация данных в виде бинарного дерева</A>
+                           <A HREF="lect41.html"><LI>Сравнение различных способов организации данных</A>
+                           <A HREF="lect42.html"><LI>Методы ускорения доступа к данным</A>
+                           <A HREF="lect43.html"><LI>Ускорение поиска записей с использованием массива индексов</A>
+                           <A HREF="lect44.html"><LI>Последовательность разработки ЭИС</A>
+                           <A HREF="lect45.html"><LI>Обследование существующей информационной системы на предприятии</A>
+                           <A HREF="lect46.html"><LI>Построение схем документооборота на предприятии</A>
+                           <A HREF="lect47.html"><LI>Матричная информационная модель</A>
+                           <A HREF="lect48.html"><LI>Графическое представление и правила функционирования цепной организации данных</A>
+                           <A HREF="lect49.html"><LI>Базы знаний, модели знаний</A>
+                           <A HREF="lect50.html"><LI>Параметризация экономических информационных систем</A>
+                           <A HREF="lect51.html"><LI>Параметризация потоков данных и запросов</A>
+                           <A HREF="lect52.html"><LI>Параметризация вычислительной системы</A>
+                           <A HREF="lect53.html"><LI>Защита данных в ЭИС</A>
+                           <A HREF="lect54.html"><LI>Пакет прикладных программ «Управление запасами»</A>
+                           <A HREF="lect55.html"><LI>Пакет прикладных программ «Планирование потребностей»</A>
+                           <A HREF="lect56.html"><LI>Пакет прикладных программ «Планирование мощности»</A>
+                           <A HREF="lect57.html"><LI>Пакет прикладных программ «Управление цехом»</A>
+                           <A HREF="lect58.html"><LI>Структура интегрированного пакета прикладных программ СИОД</A>
+                           <A HREF="lect59.html"><LI>Математическое обеспечение ЭИС. Прогнозирование</A>
+                           <A HREF="lect60.html"><LI>Математическое обеспечение ЭИС. Управление запасами</A>
+                           <A HREF="lect61.html"><LI>Математическое обеспечение ЭИС. Выбор порядка обработки деталей на двух станках</A>
+                        </OL></FONT>
+                     </TD>
+                  </TR>
+               </TABLE>
+            </TD>
+         </TR>
+      </TABLE>
+      <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="780" ALIGN="center">
+         <TR BGCOLOR="#669999">
+            <TD WIDTH="5" ROWSPAN="5">
+            </TD>
+            <TD WIDTH="5" BGCOLOR="#336666">
+            </TD>
+            <TD WIDTH="225" HEIGHT="20">
+            </TD>
+            <TD WIDTH="50" HEIGHT="50" ROWSPAN="3" COLSPAN="3" BGCOLOR="white">
+               <A HREF="javascript:scroll(0,0)" onMouseOver="document.pic1.src='Images/up2.gif'" onMouseOut="document.pic1.src='Images/up1.gif'">
+                  <DIV><IMG SRC="Images/up1.gif" WIDTH="50" HEIGHT="50" BORDER="0" NAME="pic1"></DIV>
+               </A>
+            </TD>
+            <TD WIDTH="465" BGCOLOR="white" ALIGN="center">
+            </TD>
+            <TD WIDTH="10" BACKGROUND="Images/grad6.gif">
+            </TD>
+            <TD WIDTH="10" ROWSPAN="3">
+            </TD>
+            <TD WIDTH="5" BGCOLOR="#336666" ROWSPAN="5">
+            </TD>
+            <TD WIDTH="5" ROWSPAN="5">
+            </TD>
+         </TR>
+         <TR>
+            <TD BACKGROUND="Images/cor.gif">
+            </TD>
+            <TD HEIGHT="10" BACKGROUND="Images/line.gif">
+            </TD>
+            <TD BACKGROUND="Images/grad8.gif">
+            </TD>
+            <TD BACKGROUND="Images/gradr4.gif">
+            </TD>
+         </TR>
+         <TR BGCOLOR="#669999">
+            <TD>
+            </TD>
+            <TD HEIGHT="20" ALIGN="right" VALIGN="top"><FONT SIZE="1">вверх <IMG SRC="Images/arrow.jpg" WIDTH="8" HEIGHT="6"></FONT>
+            </TD>
+            <TD ROWSPAN="2">
+               <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="465" ALIGN="center">
+                  <TR>
+                     <TD WIDTH="445" ALIGN="center">
+                        <FONT SIZE="1" VALIGN="middle">&copy; Тверской Государственный Технический Университет<BR>кафедра Информационных систем</FONT>
+                     </TD>
+                     <TD WIDTH="20">
+                     </TD>
+                  </TR>
+               </TABLE>
+            </TD>
+            <TD>
+            </TD>
+         </TR>
+         <TR HEIGHT="10" BGCOLOR="#669999">
+            <TD COLSPAN="2">
+            </TD>
+            <TD WIDTH="20">
+            </TD>
+            <TD WIDTH="10" BACKGROUND="Images/line2.gif">
+            </TD>
+            <TD WIDTH="20">
+            </TD>
+            <TD COLSPAN="2">
+            </TD>
+         </TR>
+      </TABLE>
+   </BODY>
+</HTML>
+

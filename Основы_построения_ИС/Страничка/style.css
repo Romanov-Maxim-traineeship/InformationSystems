@@ -1,0 +1,21 @@
+BODY {
+   SCROLLBAR-FACE-COLOR: #336666; SCROLLBAR-HIGHLIGHT-COLOR: #669999;
+   SCROLLBAR-SHADOW-COLOR: #669999; SCROLLBAR-3DLIGHT-COLOR: #669999;
+   SCROLLBAR-ARROW-COLOR: #669999; SCROLLBAR-TRACK-COLOR: #669999; SCROLLBAR-DARKSHADOW-COLOR: #669999;
+}
+A {
+   COLOR: #333366; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+A:hover {
+   COLOR: white; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+A.green:hover {
+   COLOR: #669999; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+H3 {
+   COLOR: black; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; FONT-SIZE: 12pt;
+}
+TD {
+   COLOR: #333366; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; FONT-SIZE: 10pt;
+}
+
