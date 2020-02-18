@@ -1,15 +1,14 @@
 const readline = require("readline-sync");
-
 let answer = [];
 
-const makeArray = height => {
-  if (height <= 2) {
+const makeArray = width => {
+  if (width <= 2) {
     console.log("Длинны не достаточно");
     return (answer = fillArray(
       makeArray(+readline.question("Размер массива? "))
     ));
   }
-  let outputArray = new Array(height);
+  let outputArray = new Array(width);
   return outputArray;
 };
 
@@ -25,25 +24,30 @@ const fillArray = array => {
 
 answer = fillArray(makeArray(+readline.question("Размер массива? ")));
 
-const minItem = answer.findIndex(
-  answerItem => answerItem === Math.min(...answer)
-);
+let max = { value: answer[0], index: 0 };
 
-if (minItem === 0 || minItem === answer.length - 1) {
-  console.log("Минимальное значение в начале или в конце");
-  answer = fillArray(makeArray(+readline.question("Размер массива? ")));
+for (var i = 1; i < answer.length; i++) {
+  if (max.value <= answer[i]) {
+    max.value = answer[i];
+    max.index = i;
+  }
 }
 
+const multiply = answer
+  .slice(0, max.index)
+  .reduce((old, current) => old * current);
+
+const sum = answer
+  .slice(max.index + 1, answer.length)
+  .reduce((old, current) => old + current);
+
 try {
-  if (
-    answer.slice(0, minItem).reduce((acc, current) => acc + current) >
-    answer
-      .slice(minItem + 1, answer.length)
-      .reduce((acc, current) => acc * current)
-  ) {
-    console.log("первый больше");
+  if (multiply === sum) return console.log("Они равны");
+
+  if (multiply > sum) {
+    console.log(`произведение ${multiply} > сумма ${sum}`);
   } else {
-    console.log("второй больше");
+    console.log(`произведение ${multiply} < сумма ${sum}`);
   }
 } catch {
   console.log("Ошибка, введите заново массив");
