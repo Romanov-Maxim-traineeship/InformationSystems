@@ -1,5 +1,7 @@
 const readline = require("readline-sync");
-let answer = [];
+let answer = [],
+  newAnswer = [],
+  average = 0;
 
 const makeArray = width => {
   if (width <= 2) {
@@ -24,32 +26,25 @@ const fillArray = array => {
 
 answer = fillArray(makeArray(+readline.question("Размер массива? ")));
 
-let max = { value: answer[0], index: 0 };
-
-for (var i = 1; i < answer.length; i++) {
-  if (max.value <= answer[i]) {
-    max.value = answer[i];
-    max.index = i;
+let findElements = {
+  min: {
+    index: answer.findIndex(element => element === Math.min(...answer)),
+    element: Math.min(...answer)
+  },
+  max: {
+    index: answer.findIndex(element => element === Math.max(...answer)),
+    element: Math.max(...answer)
   }
+};
+
+const { min, max } = findElements;
+
+if (min.index < max.index) {
+  newAnswer = answer.slice(min.index + 1, max.index);
+} else {
+  newAnswer = answer.slice(max.index + 1, min.index);
 }
 
-const multiply = answer
-  .slice(0, max.index)
-  .reduce((old, current) => old * current);
+average = newAnswer.reduce((acc, number) => acc + number) / newAnswer.length;
 
-const sum = answer
-  .slice(max.index + 1, answer.length)
-  .reduce((old, current) => old + current);
-
-try {
-  if (multiply === sum) return console.log("Они равны");
-
-  if (multiply > sum) {
-    console.log(`произведение ${multiply} > сумма ${sum}`);
-  } else {
-    console.log(`произведение ${multiply} < сумма ${sum}`);
-  }
-} catch {
-  console.log("Ошибка, введите заново массив");
-  answer = fillArray(makeArray(+readline.question("Размер массива? ")));
-}
+console.log("Average is - ", average);
