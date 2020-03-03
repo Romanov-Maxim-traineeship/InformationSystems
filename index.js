@@ -1,30 +1,9 @@
-const readline = require("readline-sync");
+const { makeArray, fillArray } = require("./readline");
 let answer = [],
   newAnswer = [],
   average = 0;
 
-const makeArray = width => {
-  if (width <= 2) {
-    console.log("Длинны не достаточно");
-    return (answer = fillArray(
-      makeArray(+readline.question("Размер массива? "))
-    ));
-  }
-  let outputArray = new Array(width);
-  return outputArray;
-};
-
-const fillArray = array => {
-  console.log("Заполните массив: ");
-  for (let i = 0; i < array.length; i++) {
-    const numberForArray = readline.question(`${i} элемент: `);
-
-    array[i] = +numberForArray;
-  }
-  return array;
-};
-
-answer = fillArray(makeArray(+readline.question("Размер массива? ")));
+answer = fillArray(makeArray());
 
 let findElements = {
   min: {
