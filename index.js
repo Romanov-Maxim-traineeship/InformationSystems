@@ -1,29 +1,34 @@
-const { makeArray, fillArray } = require("./readline");
-let answer = [],
-  newAnswer = [],
-  average = 0;
+const readlineSync = require("readline-sync");
 
-answer = fillArray(makeArray());
+var sentence = readlineSync.question(
+  "Введи свое предложение и я найду палиндром: "
+);
 
-let findElements = {
-  min: {
-    index: answer.findIndex(element => element === Math.min(...answer)),
-    element: Math.min(...answer)
-  },
-  max: {
-    index: answer.findIndex(element => element === Math.max(...answer)),
-    element: Math.max(...answer)
-  }
-};
+const sentenceArray = sentence
+  .trim()
+  .replace(/,/g, "")
+  .toLowerCase()
+  .split(" ")
+  .join("");
 
-const { min, max } = findElements;
+const sentenceWordsArray = sentence
+  .trim()
+  .replace(/,/g, "")
+  .toLowerCase()
+  .split(" ");
 
-if (min.index < max.index) {
-  newAnswer = answer.slice(min.index + 1, max.index);
-} else {
-  newAnswer = answer.slice(max.index + 1, min.index);
+for (let i = 0; i < sentenceWordsArray.length; i++) {
+  const newReverseWord = sentenceWordsArray[i]
+    .split("")
+    .reverse()
+    .join("");
+  sentenceWordsArray[i] = newReverseWord;
 }
 
-average = newAnswer.reduce((acc, number) => acc + number) / newAnswer.length;
+const reverseSentence = sentenceWordsArray.reverse().join("");
 
-console.log("Average is - ", average);
+if (sentenceArray === reverseSentence) {
+  console.warn("Да! Палиндром!");
+} else {
+  console.warn("Нет! Не палиндром!");
+}
