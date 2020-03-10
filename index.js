@@ -1,34 +1,20 @@
 const readlineSync = require("readline-sync");
+let counter = 0;
 
-var sentence = readlineSync.question(
-  "Введи свое предложение и я найду палиндром: "
-);
-
-const sentenceArray = sentence
-  .trim()
-  .replace(/,/g, "")
-  .toLowerCase()
-  .split(" ")
-  .join("");
-
-const sentenceWordsArray = sentence
-  .trim()
-  .replace(/,/g, "")
-  .toLowerCase()
-  .split(" ");
-
-for (let i = 0; i < sentenceWordsArray.length; i++) {
-  const newReverseWord = sentenceWordsArray[i]
-    .split("")
-    .reverse()
-    .join("");
-  sentenceWordsArray[i] = newReverseWord;
+const sentence = readlineSync.question("Введи свое предложение: ");
+let word = readlineSync.question("Введи букву: ");
+if (!word) {
+  word = "space";
 }
+const separatedSentence = sentence.split("");
 
-const reverseSentence = sentenceWordsArray.reverse().join("");
+separatedSentence.forEach(separatedWord => {
+  if (separatedWord === word) {
+    counter++;
+  }
+  if (separatedWord === " " && word == "space") {
+    counter++;
+  }
+});
 
-if (sentenceArray === reverseSentence) {
-  console.warn("Да! Палиндром!");
-} else {
-  console.warn("Нет! Не палиндром!");
-}
+console.log(`${Math.floor((counter / separatedSentence.length) * 100)}%`);
