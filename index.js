@@ -1,20 +1,8 @@
-const readlineSync = require("readline-sync");
-let counter = 0;
+const { makeArray, fillArray } = require("./readline");
+const bubbleSortArray = require("./bubbleSort");
 
-const sentence = readlineSync.question("Введи свое предложение: ");
-let word = readlineSync.question("Введи букву: ");
-if (!word) {
-  word = "space";
-}
-const separatedSentence = sentence.split("");
+const arr = fillArray(makeArray());
 
-separatedSentence.forEach(separatedWord => {
-  if (separatedWord === word) {
-    counter++;
-  }
-  if (separatedWord === " " && word == "space") {
-    counter++;
-  }
-});
-
-console.log(`${Math.floor((counter / separatedSentence.length) * 100)}%`);
+console.log(
+  bubbleSortArray(arr.filter(item => typeof item === "number" && !isNaN(item)))
+);
